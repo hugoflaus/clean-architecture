@@ -1,5 +1,6 @@
 using clean_architecture.Application.InputModels;
 using clean_architecture.Application.ViewModels;
+using clean_architecture.Core.Entities;
 using clean_architecture.Core.Interfaces.Repositories;
 
 namespace clean_architecture.Application.Services
@@ -15,12 +16,14 @@ namespace clean_architecture.Application.Services
 
         public void Add(ProductInputModel productModel)
         {
-
+            var product = new Product();
+            _productRepository.Add(product);
         }
 
         public ProductViewModel GetById(int id)
         {
-            return new ProductViewModel();
+            var product = _productRepository.GetById(id);
+            return new ProductViewModel(product.Title, product.Price);
         }
         
     }
