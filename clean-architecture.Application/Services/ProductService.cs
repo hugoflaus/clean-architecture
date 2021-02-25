@@ -5,7 +5,7 @@ using clean_architecture.Core.Interfaces.Repositories;
 
 namespace clean_architecture.Application.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
 
